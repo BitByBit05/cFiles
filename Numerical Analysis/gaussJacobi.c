@@ -11,19 +11,15 @@ int main() {
 
     printf("Starting Gauss-Jacobi Iteration...\n");
 
-    // The do-while loop ensures at least one iteration
     do {
-        // Store the current values as 'old' values for comparison later
         double x_old = x;
         double y_old = y;
         double z_old = z;
 
-        // Calculate the new values using the OLD values
         xNew = (10 - y_old - z_old) / 8.0;
         yNew = (12 - x_old - z_old) / 10.0;
         zNew = (10 - x_old - y_old) / 8.0;
 
-        // Update the current values with the new values
         x = xNew;
         y = yNew;
         z = zNew;
@@ -32,7 +28,6 @@ int main() {
 
         printf("Iteration %d: x = %.6f, y = %.6f, z = %.6f\n", iter, x, y, z);
 
-        // The loop continues as long as the solution has not converged
     } while ((fabs(xNew - x) > TOLERANCE || fabs(yNew - y) > TOLERANCE || fabs(zNew - z) > TOLERANCE) && iter < max_iter);
 
     printf("\nSolution converged after %d iterations:\n", iter);
